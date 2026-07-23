@@ -1,0 +1,148 @@
+@media (max-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact-right {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-page {
+        padding: 40px 20px;
+    }
+    .info-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .contact-header h1 {
+        font-size: 30px;
+    }
+
+    header {
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo img {
+        width: 140px;
+        height: auto;
+    }
+
+    header ul {
+        gap: 10px 16px;
+        display: none;
+    }
+
+    header ul li a {
+        font-size: 14px;
+    }
+
+    .icon-sec {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .site-footer {
+        padding: 40px 20px 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .newsletter-form button {
+        width: 50%;
+        margin: 0 auto;
+    }
+    input[type="text"], input[type="email"] {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 420px) {
+    .product-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-page {
+        padding: 80px 20px 50px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-hero-text h2,
+    .about-text-block h2 {
+        font-size: 24px;
+    }
+
+    .highlight-card {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width:460px){
+    .hero-section{
+        justify-content: center;
+        padding-right: 0;
+    }
+    .hero-cnt{
+        width: 90%;
+        height: auto;
+    }
+    .hero-subtitle, .hero-title, .hero-description{
+        padding-left: 20px;
+    }
+    .hero-btn{
+       margin:0 20px 20px;
+        padding: 14px 15px;
+        width: 35%;
+    }
+    .hero-subtitle{
+        font-size: 16px;
+    }
+    .hero-title{
+        font-size: 28px;
+    }
+    .main-heading h2{
+        font-size: 28px;
+    }
+    .main-heading p{
+        font-size: 14px;
+    }
+    .card-sec{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card{
+        width: 90%;
+    }
+    .our-products{
+        padding: 40px 20px;
+    }
+    .our-products h2{
+        font-size: 28px;
+    }
+    .our-products p{
+        font-size: 14px;
+    }
+
+    .products-card{
+        grid-template-columns: 1fr;
+
+    }
+}

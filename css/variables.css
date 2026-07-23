@@ -1,0 +1,13 @@
+:root {
+  --bg: #fcfaf6;
+  --surface: #ffffff;
+  --text: #212121;
+  --muted: #6b6b6b;
+  --accent: #ff6f61;
+  --accent-dark: #e6554c;
+  --border: #e8e4dd;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+  --radius: 16px;
+  --max-width: 1240px;
+  --font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
