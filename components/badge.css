@@ -1,0 +1,20 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(255, 111, 97, 0.12);
+  color: var(--accent, #ff6f61);
+}
+
+.badge--success {
+  background: rgba(34, 197, 94, 0.14);
+  color: #15803d;
+}
+
+.badge--dark {
+  background: var(--text, #212121);
+  color: #fff;
+}

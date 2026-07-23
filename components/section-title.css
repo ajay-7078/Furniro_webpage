@@ -1,0 +1,27 @@
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-title__eyebrow {
+  color: var(--accent, #ff6f61);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title__heading {
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text, #212121);
+  margin-bottom: 0.5rem;
+}
+
+.section-title__text {
+  color: var(--muted, #6b6b6b);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}

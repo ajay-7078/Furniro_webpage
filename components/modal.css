@@ -1,0 +1,29 @@
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal.is-open {
+  display: flex;
+}
+
+.modal__content {
+  background: var(--surface, #fff);
+  border-radius: 24px;
+  padding: 1.5rem;
+  width: min(100%, 560px);
+  box-shadow: var(--shadow, 0 18px 50px rgba(0, 0, 0, 0.08));
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}

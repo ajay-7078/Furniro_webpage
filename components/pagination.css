@@ -1,0 +1,27 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.pagination__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border, #e8e4dd);
+  color: var(--text, #212121);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pagination__item.is-active,
+.pagination__item:hover {
+  background: var(--accent, #ff6f61);
+  color: #fff;
+  border-color: var(--accent, #ff6f61);
+}

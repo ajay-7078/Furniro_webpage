@@ -1,0 +1,26 @@
+.footer {
+  background: #f7f4ee;
+  padding: 2.5rem 1.5rem;
+  border-top: 1px solid var(--border, #e8e4dd);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.footer__title {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text, #212121);
+}
+
+.footer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+  color: var(--muted, #6b6b6b);
+}

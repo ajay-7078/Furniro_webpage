@@ -1,0 +1,8 @@
+.container {
+  width: min(100% - 2rem, var(--max-width, 1240px));
+  margin-inline: auto;
+}
+
+.container--fluid {
+  width: 100%;
+}
