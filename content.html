@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="./css/master.css">
+  
 </head>
 
 <body>
@@ -73,24 +74,24 @@
 
             <div class="contact-right">
                 <div class="form-box">
-                    <form action="#" method="post">
+                    <form id="contactForm" action="#" method="post" class="contactForm" onsubmit="event.preventDefault(); return false;">
                         <div class="form-row">
-                            <label>Your name</label>
-                            <input type="text" name="name" placeholder="Abc" required>
+                            <label for="name">Your name</label>
+                            <input id="name" type="text" name="name" placeholder="Abc" required>
                         </div>
                         <div class="form-row">
-                            <label>Email address</label>
-                            <input type="email" name="email" placeholder="Abc@def.com" required>
+                            <label for="email">Email address</label>
+                            <input id="email" type="email" name="email" placeholder="Abc@def.com" required>
                         </div>
                         <div class="form-row">
-                            <label>Subject</label>
-                            <input type="text" name="subject" placeholder="This is optional">
+                            <label for="subject">Subject</label>
+                            <input id="subject" type="text" name="subject" placeholder="This is optional">
                         </div>
                         <div class="form-row">
-                            <label>Message</label>
-                            <textarea name="message" placeholder="Hi! I'd like to ask about" rows="6"></textarea>
+                            <label for="msg">Message</label>
+                            <textarea name="message" id="msg" placeholder="Hi! I'd like to ask about" rows="6"></textarea>
                         </div>
-                        <button type="submit">Send Message</button>
+                        <button type="submit" onclick="sendMail()">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -132,7 +133,7 @@
                     <h4>Newsletter</h4>
                     <form class="newsletter-form" action="#" onsubmit="return false;">
                         <input type="email" placeholder="Enter Your Email Address" aria-label="Email">
-                        <button type="submit">SUBSCRIBE</button>
+                        <button type="submit" >SUBSCRIBE</button>
                     </form>
                 </div>
             </div>
@@ -141,6 +142,17 @@
                 <p>2023 Funiro. All rights reserved</p>
             </div>
         </footer>
+       <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "ZD9NBiZ_3R6TNmd-A",
+      });
+   })();
+</script>
+<script src="script.js"></script>
         
 </body>
 </html>
