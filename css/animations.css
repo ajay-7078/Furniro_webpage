@@ -13,8 +13,127 @@
 .card,
 .gallery-card,
 .product-card,
-.info-card {
+.info-card,
+.highlight-card {
   animation: fadeInUp 0.75s ease both;
+}
+
+/* Index page - Feature cards */
+.card-sec .card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.card-sec .card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.card-sec .card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+/* Index page - Product cards */
+.products-card .cards:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.products-card .cards:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.products-card .cards:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+/* Gallery page */
+.gallery-grid .gallery-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.gallery-grid .gallery-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.gallery-grid .gallery-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.gallery-grid .gallery-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.gallery-grid .gallery-card:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.gallery-grid .gallery-card:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.gallery-grid .gallery-card:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.gallery-grid .gallery-card:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+/* About page - Highlight cards */
+.about-highlights .highlight-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.about-highlights .highlight-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.about-highlights .highlight-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+/* Shop page - Product cards */
+.product-grid .product-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.product-grid .product-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.product-grid .product-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.product-grid .product-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.product-grid .product-card:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.product-grid .product-card:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.product-grid .product-card:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.product-grid .product-card:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+/* Contact page - Info cards */
+.contact-left .info-card:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.contact-left .info-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.contact-left .info-card:nth-child(3) {
+  animation-delay: 0.2s;
 }
 
 .button-float {

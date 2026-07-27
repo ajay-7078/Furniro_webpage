@@ -13,7 +13,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  padding: 0.95rem 1.6rem;
+  padding: 0.90rem 1.6rem;
   background: var(--accent);
   color: #fff;
   transition: background-color 0.2s ease;
