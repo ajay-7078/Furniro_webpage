@@ -4,8 +4,9 @@
 }
 
 body[data-theme="dark"] {
-  background: #0b1220;
-  color: #e5ebf6;
+  /* slightly adjusted background and light text for proper contrast */
+  background: #0b1218;
+  color: #e2e8f0;
 }
 
 body[data-theme="dark"] header {
@@ -41,7 +42,8 @@ body[data-theme="dark"] .contact-page {
 }
 
 body[data-theme="dark"] .product-info p {
-  color: #02152d;
+  /* ensure product descriptions are readable on dark backgrounds */
+  color: #cbd5e1;
 }
 
 body[data-theme="dark"] .about-text-block li {
