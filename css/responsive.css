@@ -1,13 +1,4 @@
-@media (max-width: 1024px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-  .contact-right {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 480px) {
+﻿@media (max-width: 480px) {
   .contact-page {
     padding: 40px 20px;
   }
@@ -71,12 +62,6 @@
   }
   .products-card {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 900px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -152,24 +137,6 @@
   .products-card {
     grid-template-columns: 1fr;
   }
-}
-
-/* Default hamburger hidden; shown on tablet/mobile via media queries */
-.hamburger {
-  display: none;
-  background: transparent;
-  border: none;
-  padding: 6px;
-}
-.hamburger .bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: #333;
-  margin: 4px 0;
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
 }
 
 @media (max-width: 768px) {
@@ -418,33 +385,6 @@
   }
 }
 
-
-@media (max-width: 900px) {
-  .about-page {
-    padding: 40px 20px 60px;
-  }
-  .about-hero,
-  .about-details {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .about-hero-image img,
-  .about-image-block img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-  }
-  .about-hero-text h2,
-  .about-text-block h2 {
-    font-size: 26px;
-  }
-  .about-hero-text p,
-  .about-text-block p {
-    font-size: 15px;
-    line-height: 1.8;
-  }
-}
-
 @media (max-width: 480px) {
   .about-page {
     padding: 24px 14px 40px;
@@ -505,53 +445,6 @@
   }
 }
 
-/* Bento / gallery-style section responsive rules */
-@media (max-width: 900px) {
-  .funiro-main {
-    flex-direction: column;
-    gap: 20px;
-    padding: 40px 20px;
-    margin-bottom: 20px;
-  }
-  .furniro-cnt {
-    text-align: center;
-  }
-  .bento-img {
-    width: 100%;
-    max-width: 700px;
-    aspect-ratio: 16 / 10;
-  }
-  .bento-grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-    gap: 10px;
-    grid-template-areas:
-      "large large"
-      "mid right"
-      "small1 small2";
-  }
-  .bento-grid .bento-large {
-    grid-area: large;
-    min-height: 220px;
-  }
-  .bento-grid .bento-mid {
-    grid-area: mid;
-    min-height: 150px;
-  }
-  .bento-grid .bento-right {
-    grid-area: right;
-    min-height: 150px;
-  }
-  .bento-grid .bento-small1 {
-    grid-area: small1;
-    min-height: 120px;
-  }
-  .bento-grid .bento-small2 {
-    grid-area: small2;
-    min-height: 120px;
-  }
-}
-
 @media (max-width: 480px) {
   .funiro-main {
     padding: 24px 12px 20px;
@@ -588,24 +481,6 @@
   .bento-grid img {
     min-height: 120px;
     object-fit: cover;
-  }
-}
-
-/* Footer responsive rules */
-@media (max-width: 900px) {
-  .site-footer {
-    padding: 40px 20px 24px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .footer-left,
-  .footer-links,
-  .footer-newsletter {
-    min-width: 0;
   }
 }
 
