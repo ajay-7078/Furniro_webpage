@@ -9,6 +9,7 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/master.css">
+    <link rel="stylesheet" href="./feature/dark-theme.css">
 </head>
 <!-- Navbar -->
 
@@ -17,6 +18,11 @@
         <div class="logo">
             <img src="images/Frame 168.png" alt="Furniro Logo">
         </div>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="Shop.html">Shop</a></li>
@@ -30,6 +36,7 @@
             <i class="fa-regular fa-heart"></i>
             <i class="fa-solid fa-cart-arrow-down"></i>
 
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
         </div>
     </header>
 
@@ -241,6 +248,10 @@
                 <p>2023 Funiro. All rights reserved</p>
             </div>
         </footer>
+
+<script src="script.js"></script>
 </body>
 
 </html>
+
+
