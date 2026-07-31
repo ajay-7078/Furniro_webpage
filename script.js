@@ -37,17 +37,48 @@ function initThemeToggle() {
 function initMenuToggle() {
     var btn = document.querySelector('.hamburger');
     var nav = document.querySelector('header ul');
+    var themeToggle = document.getElementById('theme-toggle');
+    var originalThemeParent = themeToggle ? themeToggle.parentElement : null;
+
     if (!btn || !nav) return;
+
     btn.addEventListener('click', function (e) {
         e.stopPropagation();
         var open = nav.classList.toggle('open');
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+
+        // Move theme toggle into the nav when menu opens, move back when closes
+        if (themeToggle) {
+            if (open) {
+                // avoid duplicating if already moved
+                if (!nav.querySelector('.nav-theme')) {
+                    var wrapper = document.createElement('li');
+                    wrapper.className = 'nav-theme';
+                    wrapper.appendChild(themeToggle);
+                    nav.appendChild(wrapper);
+                }
+            } else {
+                var existing = nav.querySelector('.nav-theme');
+                if (existing) {
+                    // move button back to its original place
+                    if (originalThemeParent) originalThemeParent.appendChild(themeToggle);
+                    existing.remove();
+                }
+            }
+        }
     });
+
     document.addEventListener('click', function (e) {
         if (!nav.classList.contains('open')) return;
         if (!e.target.closest('header')) {
             nav.classList.remove('open');
             btn.setAttribute('aria-expanded', 'false');
+            // ensure theme toggle moved back
+            var existing = nav.querySelector('.nav-theme');
+            if (existing && themeToggle && originalThemeParent) {
+                originalThemeParent.appendChild(themeToggle);
+                existing.remove();
+            }
         }
     });
 }
