@@ -1,9 +1,31 @@
 ﻿/* Responsive overrides for tablets and phones */
 
 @media (max-width: 1024px) {
-  /* show hamburger and hide full nav on tablet and smaller */
+  /* show hamburger and animate the dropdown menu on tablet and smaller */
   header ul {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    right: 18px;
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    gap: 8px;
+    z-index: 9;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  }
+  header ul.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
   }
   .hamburger {
     display: block;
@@ -144,9 +166,6 @@
     padding: 14px 18px;
   }
   header ul {
-    display: none;
-  }
-  header ul.open {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -159,6 +178,17 @@
     gap: 8px;
     z-index: 9;
     min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  }
+  header ul.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
   }
   header ul.open li a {
     padding: 8px 12px;

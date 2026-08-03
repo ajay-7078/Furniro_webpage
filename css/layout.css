@@ -645,6 +645,27 @@ header ul li a.active::after {
     background: rgba(0,0,0,0.35);
     opacity: 0;
     transition: opacity 0.18s ease;
+    pointer-events: none;
+}
+
+.product-card:hover .card-overlay,
+.product-card:focus-within .card-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.overlay-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: #fff;
+    color: #333;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.16);
 }
 
 .product-info {

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniro - Product Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/master.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/Frame 168.png" alt="Furniro Logo">
+        </div>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Shop.html">Shop</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="content.html">Contact</a></li>
+        </ul>
+        <div class="icon-sec">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-cart-arrow-down"></i>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </header>
+
+    <main class="product-detail-page">
+        <section class="product-detail-hero">
+            <div class="product-detail-breadcrumb">
+                <a href="index.html">Home</a> / <a href="Shop.html">Shop</a> / Product Details
+            </div>
+            <div class="product-detail-layout">
+                <div class="product-gallery">
+                    <div class="product-gallery__main">
+                        <img src="images/Rectangle 36.png" alt="Syltherine lounge chair">
+                    </div>
+                    <div class="product-gallery__thumbs">
+                        <img src="images/Rectangle 37.png" alt="Chair in warm wood finish">
+                        <img src="images/Rectangle 38.png" alt="Chair with soft cushioning">
+                        <img src="images/Rectangle 39.png" alt="Chair in a modern interior">
+                    </div>
+                </div>
+
+                <div class="product-summary">
+                    <p class="section-label">New Arrival</p>
+                    <h1>Syltherine Lounge Chair</h1>
+                    <div class="price-tag">Rp 2.500.000</div>
+                    <p class="product-description">
+                        Designed for relaxed evenings and effortless style, this lounge chair combines a sculptural silhouette,
+                        plush cushioning, and a refined wood frame. It brings a balance of warmth and modern elegance to any
+                        living space.
+                    </p>
+
+                    <div class="option-group">
+                        <span>Color</span>
+                        <div class="color-swatches" aria-label="Available colors">
+                            <button class="color-swatch is-active" style="background:#4f463e" aria-label="Walnut brown"></button>
+                            <button class="color-swatch" style="background:#c8b59b" aria-label="Cream"></button>
+                            <button class="color-swatch" style="background:#2f3b46" aria-label="Midnight blue"></button>
+                        </div>
+                    </div>
+
+                    <div class="option-group">
+                        <span>Quantity</span>
+                        <div class="qty-control" aria-label="Quantity selector">
+                            <button type="button" aria-label="Decrease quantity">-</button>
+                            <input type="text" value="1" aria-label="Quantity">
+                            <button type="button" aria-label="Increase quantity">+</button>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <a href="#" class="detail-btn primary">Add to Cart</a>
+                        <a href="#" class="detail-btn ghost">Add to Wishlist</a>
+                    </div>
+
+                    <ul class="product-meta-list">
+                        <li><strong>Category:</strong> Living Room</li>
+                        <li><strong>Material:</strong> Solid oak, premium fabric</li>
+                        <li><strong>Delivery:</strong> 4–6 business days</li>
+                        <li><strong>Warranty:</strong> 2 years</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-overview" aria-label="Product highlights">
+            <article class="product-overview__card">
+                <h2>Crafted for Comfort</h2>
+                <p>
+                    Every curve and cushion is shaped to deliver a cozy seat that still feels elegant from every angle.
+                    The high-density foam and soft-touch upholstery provide lasting comfort for daily lounging.
+                </p>
+            </article>
+            <article class="product-overview__card">
+                <h2>Built to Last</h2>
+                <ul>
+                    <li>Solid wood frame with reinforced joints</li>
+                    <li>Easy-clean upholstery for modern homes</li>
+                    <li>Low-profile legs for a light, airy profile</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="related-products-section">
+            <div class="section-title related-products-title">
+                <p class="section-title__eyebrow">You may also like</p>
+                <h2 class="section-title__heading">Related products</h2>
+                <p class="section-title__text">Complete your space with more timeless pieces from our collection.</p>
+            </div>
+
+            <div class="related-products-grid">
+                <article class="related-product">
+                    <img src="images/Rectangle 41.png" alt="Minimal study desk">
+                    <div class="related-product__body">
+                        <h3>Minimal Study Desk</h3>
+                        <p>Clean lines designed for focused work and quiet corners.</p>
+                        <div class="price">Rp 1.900.000</div>
+                    </div>
+                </article>
+
+                <article class="related-product">
+                    <img src="images/Rectangle 44.png" alt="Modern coffee table">
+                    <div class="related-product__body">
+                        <h3>Modern Coffee Table</h3>
+                        <p>Rounded contours and a warm finish bring subtle character to your room.</p>
+                        <div class="price">Rp 1.400.000</div>
+                    </div>
+                </article>
+
+                <article class="related-product">
+                    <img src="images/Rectangle 45.png" alt="Compact bench seat">
+                    <div class="related-product__body">
+                        <h3>Compact Bench</h3>
+                        <p>Perfect for entryways, bedrooms, or layered with textured cushions.</p>
+                        <div class="price">Rp 1.200.000</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-left">
+                <div class="logo">
+                    <img src="images/Frame 168.png" alt="Funiro Logo">
+                </div>
+                <address>
+                    400 University Drive Suite 200 Coral Gables,<br>
+                    FL 33134 USA
+                </address>
+            </div>
+
+            <div class="footer-links">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">Payment Options</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Privacy Policies</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <form class="newsletter-form" action="#" onsubmit="return false;">
+                    <input type="email" placeholder="Enter Your Email Address" aria-label="Email">
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>2023 Funiro. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

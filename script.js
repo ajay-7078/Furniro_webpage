@@ -83,7 +83,32 @@ function initMenuToggle() {
     });
 }
 
+function initProductCardLinks() {
+    var cards = document.querySelectorAll('.product-card, .cards');
+
+    cards.forEach(function (card) {
+        if (!card || card.dataset.productLinkBound === 'true') return;
+
+        card.dataset.productLinkBound = 'true';
+        card.style.cursor = 'pointer';
+        card.setAttribute('tabindex', '0');
+
+        card.addEventListener('click', function (e) {
+            if (e.target.closest('a')) return;
+            window.location.href = 'product-detail.html';
+        });
+
+        card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.location.href = 'product-detail.html';
+            }
+        });
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     initMenuToggle();
     initThemeToggle();
+    initProductCardLinks();
 });
