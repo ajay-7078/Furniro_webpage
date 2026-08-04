@@ -8,10 +8,10 @@
     position: absolute;
     top: 64px;
     right: 18px;
-    background: #fff;
+    background: var(--bg-card);
     padding: 12px;
     border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 24px var(--shadow-color-strong);
     gap: 8px;
     z-index: 9;
     min-width: 180px;
@@ -43,7 +43,7 @@
     display: block;
     width: 24px;
     height: 2px;
-    background: #333;
+    background: var(--text-main);
     margin: 5px auto;
   }
   /* style theme toggle when moved into nav */
@@ -58,7 +58,7 @@
     border: none;
     cursor: pointer;
     font-size: 18px;
-    color: #333;
+    color: var(--text-main);
     padding: 6px 10px;
   }
   header ul .nav-theme .theme-toggle i,
@@ -171,10 +171,10 @@
     position: absolute;
     top: 64px;
     right: 12px;
-    background: #fff;
+    background: var(--bg-card);
     padding: 12px;
     border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 24px var(--shadow-color-strong);
     gap: 8px;
     z-index: 9;
     min-width: 180px;
