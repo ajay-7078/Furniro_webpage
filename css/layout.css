@@ -204,7 +204,7 @@ header ul li a.active::after {
 }
 
 .our-products {
-    padding: 80px 60px;
+    padding: 40px 60px;
     overflow: hidden;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
@@ -295,7 +295,7 @@ header ul li a.active::after {
 .funiro-main {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     gap: 24px;
     padding: 60px 40px;
     margin-bottom: 40px;
@@ -307,7 +307,7 @@ header ul li a.active::after {
 }
 
 .furniro-cnt h2 {
-    font-size: 28px;
+    font-size: 36px;
     color: #333;
     margin: 0;
 }

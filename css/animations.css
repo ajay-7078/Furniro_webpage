@@ -9,6 +9,26 @@
   }
 }
 
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(120px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-cnt {
+  animation: slideInFromRight 0.9s ease-out both;
+}
+
+.hero-subtitle {
+  animation: slideInFromRight 0.8s ease-out both;
+  animation-delay: 0.15s;
+}
+
 .cards,
 .card,
 .gallery-card,
