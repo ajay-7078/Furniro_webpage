@@ -36,7 +36,7 @@
     --accent-hover: #e05a4a;
 }
 
-/* Apply theme-aware defaults so components using variables reflect dark mode */
+
 body {
     background-color: var(--bg-page);
     color: var(--text-main);
@@ -76,6 +76,18 @@ header ul li a {
     border-top-color: var(--border-color);
 }
 
+/* Footer nav links: ensure high contrast in dark mode */
+[data-theme="dark"] .site-footer .footer-links a,
+[data-theme="dark"] .site-footer .footer-links ul li a,
+[data-theme="dark"] .site-footer .footer-links a:link,
+[data-theme="dark"] .site-footer .footer-links a:visited {
+    color: #ffffff;
+}
+[data-theme="dark"] .site-footer .footer-links a:hover {
+    color: #a0a0a0;
+}
+
+
 .footer-links h4,
 .footer-newsletter h4 {
     color: var(--text-muted);
@@ -93,4 +105,144 @@ a {
 
 a:hover {
     color: var(--accent-hover);
+}
+
+
+[data-theme="dark"] header,
+[data-theme="dark"] .Browse-the-Range,
+[data-theme="dark"] .hero-section {
+    background-color: var(--bg-section);
+}
+
+[data-theme="dark"] header ul li a,
+[data-theme="dark"] .main-heading h2,
+[data-theme="dark"] .main-heading p,
+[data-theme="dark"] .hero-title,
+[data-theme="dark"] .hero-subtitle,
+[data-theme="dark"] .hero-description,
+[data-theme="dark"] .Browse-the-Range h2,
+[data-theme="dark"] .Browse-the-Range p {
+    color: var(--text-main);
+}
+
+/* Icons in the header should be readable */
+[data-theme="dark"] .icon-sec i {
+    color: var(--text-main);
+}
+[data-theme="dark"] .icon-sec i:hover {
+    color: var(--text-muted);
+}
+
+
+[data-theme="dark"] .logo img {
+    filter: invert(1) brightness(1.2);
+}
+
+[data-theme="dark"] .hero-cnt,
+[data-theme="dark"] .card,
+[data-theme="dark"] .cards {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+}
+
+
+[data-theme="dark"] .main-heading h2 {
+    color: #ffffff;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+}
+
+
+[data-theme="dark"] button,
+[data-theme="dark"] .page-btn,
+[data-theme="dark"] .pagination a,
+[data-theme="dark"] .pagination span,
+[data-theme="dark"] .product-card .overlay-btn {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+
+[data-theme="dark"] .btn {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+}
+
+[data-theme="dark"] .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(255,111,97,0.14);
+}
+
+[data-theme="dark"] .btn-secondary {
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+
+[data-theme="dark"] .qty-control button {
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+[data-theme="dark"] .detail-btn.primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+[data-theme="dark"] .detail-btn.ghost {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+
+[data-theme="dark"] .theme-toggle,
+[data-theme="dark"] #theme-toggle {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid transparent;
+}
+
+[data-theme="dark"] .hero-btn,
+[data-theme="dark"] .newsletter-form button,
+[data-theme="dark"] .form-box button,
+[data-theme="dark"] .page-btn.active,
+[data-theme="dark"] .page-btn:hover {
+    background-color: var(--accent);
+    color: #ffffff;
+    border-color: var(--accent);
+}
+
+
+[data-theme="dark"] button:hover,
+[data-theme="dark"] .page-btn:hover {
+    filter: brightness(1.06);
+}
+
+[data-theme="dark"] .newsletter-form input,
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"] {
+    background-color: var(--input-bg);
+    color: var(--text-main);
+    border: 1px solid var(--input-border);
+}
+
+/* Contact page heading contrast */
+[data-theme="dark"] .contact-header h1 {
+    color: #ffffff;
+}
+
+/* Browse-the-Range card title contrast on home page */
+[data-theme="dark"] .Browse-the-Range .card-content h3 {
+    color: #ffffff;
 }

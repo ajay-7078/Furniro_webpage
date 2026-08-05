@@ -1,12 +1,106 @@
+function showAlert(message, type = 'info') {
+  
+    var existing = document.querySelector('.site-alert');
+    if (existing) existing.remove();
+
+    var alert = document.createElement('div');
+    alert.className = 'site-alert site-alert-' + type;
+    alert.setAttribute('role', 'alert');
+
+   
+    alert.style.position = 'fixed';
+    alert.style.zIndex = 5;
+    alert.style.right = '20px';
+    alert.style.top = '20px';
+    alert.style.maxWidth = '360px';
+    alert.style.padding = '12px 16px';
+    alert.style.borderRadius = '10px';
+    alert.style.boxShadow = '0 8px 24px rgba(0,0,0,0.12)';
+    alert.style.fontFamily = 'inherit';
+    alert.style.fontSize = '14px';
+    alert.style.opacity = '0';
+    alert.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+    alert.style.transform = 'translateY(-6px)';
+
+    var theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+    if (theme === 'dark') {
+        alert.style.background = '#111827';
+        alert.style.color = '#fff';
+    } else {
+        alert.style.background = '#ffffff';
+        alert.style.color = '#0f172a';
+        alert.style.border = '1px solid rgba(15,23,42,0.06)';
+    }
+
+    if (type === 'success') {
+        alert.style.borderLeft = '4px solid #16a34a';
+    } else if (type === 'error') {
+        alert.style.borderLeft = '4px solid #ef4444';
+    } else {
+        alert.style.borderLeft = '4px solid #3b82f6';
+    }
+
+    alert.textContent = message;
+    document.body.appendChild(alert);
+
+    requestAnimationFrame(function() {
+        alert.style.opacity = '1';
+        alert.style.transform = 'translateY(0)';
+    });
+
+
+    setTimeout(function() {
+        alert.style.opacity = '0';
+        alert.style.transform = 'translateY(-6px)';
+    }, 4200);
+    setTimeout(function() { try { alert.remove(); } catch (e) {} }, 4500);
+}
+
 function sendMail() {
-    let parms = {
-        from_name: document.getElementById("name").value,
-        email_id: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("msg").value
+    var name = document.getElementById("name") ? document.getElementById("name").value.trim() : '';
+    var email = document.getElementById("email") ? document.getElementById("email").value.trim() : '';
+    var subject = document.getElementById("subject") ? document.getElementById("subject").value.trim() : '';
+    var message = document.getElementById("msg") ? document.getElementById("msg").value.trim() : '';
+
+    
+    if (!name && !email && !subject && !message) {
+        showAlert('Please fill in the form before sending.', 'error');
+        return;
+    }
+
+    
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+        showAlert('Please enter a valid email address.', 'error');
+        var emailEl = document.getElementById('email');
+        if (emailEl) emailEl.focus();
+        return;
+    }
+
+    var sendBtn = document.getElementById('send-btn');
+    if (sendBtn) { sendBtn.disabled = true; sendBtn.setAttribute('aria-disabled','true'); }
+
+    var parms = {
+        from_name: name,
+        email_id: email,
+        subject: subject,
+        message: message
     };
+
     emailjs.send("service_ch4a6n3", "template_iy33t6o", parms).then(function() {
-        alert("Email sent successfully");
+        showAlert('Email sent successfully. Thank you!', 'success');
+        if (sendBtn) { sendBtn.disabled = false; sendBtn.removeAttribute('aria-disabled'); }
+       
+        try {
+            if (document.getElementById('name')) document.getElementById('name').value = '';
+            if (document.getElementById('email')) document.getElementById('email').value = '';
+            if (document.getElementById('subject')) document.getElementById('subject').value = '';
+            if (document.getElementById('msg')) document.getElementById('msg').value = '';
+        } catch (e) {}
+    }, function(error){
+        console.error('Email send error', error);
+        showAlert('Failed to send email. Please try again later.', 'error');
+        if (sendBtn) { sendBtn.disabled = false; sendBtn.removeAttribute('aria-disabled'); }
     });
 }
 
@@ -47,10 +141,9 @@ function initMenuToggle() {
         var open = nav.classList.toggle('open');
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 
-        // Move theme toggle into the nav when menu opens, move back when closes
+        
         if (themeToggle) {
             if (open) {
-                // avoid duplicating if already moved
                 if (!nav.querySelector('.nav-theme')) {
                     var wrapper = document.createElement('li');
                     wrapper.className = 'nav-theme';
@@ -60,7 +153,6 @@ function initMenuToggle() {
             } else {
                 var existing = nav.querySelector('.nav-theme');
                 if (existing) {
-                    // move button back to its original place
                     if (originalThemeParent) originalThemeParent.appendChild(themeToggle);
                     existing.remove();
                 }
