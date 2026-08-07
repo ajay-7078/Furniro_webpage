@@ -175,6 +175,211 @@ function initMenuToggle() {
     });
 }
 
+function getStoredActionItems(key) {
+    try {
+        var items = JSON.parse(localStorage.getItem(key) || '[]');
+        return Array.isArray(items) ? items : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function setStoredActionItems(key, items) {
+    try {
+        localStorage.setItem(key, JSON.stringify(items));
+    } catch (e) {}
+}
+
+function getActionCount(key) {
+    try {
+        return Number(localStorage.getItem(key) || 0);
+    } catch (e) {
+        return 0;
+    }
+}
+
+function setActionCount(key, count) {
+    try {
+        localStorage.setItem(key, String(count));
+    } catch (e) {}
+}
+
+function renderActionPanel() {
+    var cartItems = getStoredActionItems('furniro-cart-items');
+    var wishlistItems = getStoredActionItems('furniro-wishlist-items');
+    var cartCountEl = document.querySelector('.cart-count');
+    var wishlistCountEl = document.querySelector('.wishlist-count');
+    var panelCartCountEl = document.querySelector('.panel-cart-count');
+    var panelWishlistCountEl = document.querySelector('.panel-wishlist-count');
+
+    if (cartCountEl) {
+        cartCountEl.textContent = String(cartItems.length);
+    }
+
+    if (wishlistCountEl) {
+        wishlistCountEl.textContent = String(wishlistItems.length);
+    }
+
+    if (panelCartCountEl) {
+        panelCartCountEl.textContent = String(cartItems.length);
+    }
+
+    if (panelWishlistCountEl) {
+        panelWishlistCountEl.textContent = String(wishlistItems.length);
+    }
+
+    renderActionList('cart', cartItems);
+    renderActionList('wishlist', wishlistItems);
+}
+
+function renderActionList(type, items) {
+    var listEl = document.getElementById(type + '-list');
+    if (!listEl) return;
+
+    if (!items.length) {
+        listEl.innerHTML = '<li class="empty-state">No ' + (type === 'cart' ? 'cart' : 'wishlist') + ' items yet.</li>';
+        return;
+    }
+
+    listEl.innerHTML = items.map(function (item) {
+        return '<li><div><div class="action-item-name">' + item.name + '</div><div class="action-item-price">' + item.price + '</div></div></li>';
+    }).join('');
+}
+
+function openActionPanel(view) {
+    var panel = document.getElementById('action-panel');
+    if (!panel) return;
+    panel.classList.add('open');
+    panel.setAttribute('aria-hidden', 'false');
+
+    var tabs = document.querySelectorAll('.action-tab');
+    tabs.forEach(function (tab) {
+        var isActive = tab.getAttribute('data-panel-view') === view;
+        tab.classList.toggle('active', isActive);
+    });
+
+    var sections = document.querySelectorAll('.panel-section');
+    sections.forEach(function (section) {
+        var isActive = section.getAttribute('data-panel-section') === view;
+        section.classList.toggle('active', isActive);
+    });
+}
+
+function closeActionPanel() {
+    var panel = document.getElementById('action-panel');
+    if (!panel) return;
+    panel.classList.remove('open');
+    panel.setAttribute('aria-hidden', 'true');
+}
+
+function toggleActionPanel(view) {
+    var panel = document.getElementById('action-panel');
+    if (!panel || !panel.classList.contains('open')) {
+        openActionPanel(view);
+        return;
+    }
+
+    var activeTab = document.querySelector('.action-tab.active');
+    if (activeTab && activeTab.getAttribute('data-panel-view') === view) {
+        closeActionPanel();
+    } else {
+        openActionPanel(view);
+    }
+}
+
+function syncActionButtonState(card) {
+    var buttons = card.querySelectorAll('.action-btn');
+    var heading = card.querySelector('h4') || card.querySelector('h1');
+    var itemName = heading ? heading.textContent.trim() : 'This item';
+    var cartItems = getStoredActionItems('furniro-cart-items');
+    var wishlistItems = getStoredActionItems('furniro-wishlist-items');
+
+    buttons.forEach(function (button) {
+        var action = button.getAttribute('data-action');
+        var list = action === 'cart' ? cartItems : wishlistItems;
+        var isAdded = list.some(function (item) {
+            return item.name === itemName;
+        });
+
+        button.classList.toggle('is-added', isAdded);
+        button.setAttribute('aria-pressed', isAdded ? 'true' : 'false');
+
+        var textEl = button.querySelector('span');
+        if (textEl) {
+            textEl.textContent = isAdded ? (action === 'cart' ? 'Added to Cart' : 'Added to Wishlist') : (action === 'cart' ? 'Add to Cart' : 'Add to Wishlist');
+        }
+    });
+}
+
+function initProductActions() {
+    var cards = document.querySelectorAll('.product-card, .cards, .product-summary');
+
+    cards.forEach(function (card) {
+        if (!card || card.dataset.productActionsBound === 'true') return;
+        card.dataset.productActionsBound = 'true';
+
+        syncActionButtonState(card);
+
+        var buttons = card.querySelectorAll('.action-btn');
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var action = this.getAttribute('data-action');
+                var heading = card.querySelector('h4') || card.querySelector('h1');
+                var itemName = heading ? heading.textContent.trim() : 'This item';
+                var priceEl = card.querySelector('.price') || card.querySelector('.price-tag');
+                var price = priceEl ? priceEl.textContent.trim() : 'Price available';
+                var key = action === 'cart' ? 'furniro-cart-items' : 'furniro-wishlist-items';
+
+                var items = getStoredActionItems(key);
+                var alreadyAdded = items.some(function (item) {
+                    return item.name === itemName;
+                });
+
+                if (alreadyAdded) {
+                    items = items.filter(function (item) {
+                        return item.name !== itemName;
+                    });
+                    setStoredActionItems(key, items);
+                    renderActionPanel();
+
+                    this.classList.remove('is-added');
+                    this.setAttribute('aria-pressed', 'false');
+                    var textEl = this.querySelector('span');
+                    if (textEl) {
+                        textEl.textContent = action === 'cart' ? 'Add to Cart' : 'Add to Wishlist';
+                    }
+
+                    showAlert(itemName + ' removed from your ' + (action === 'cart' ? 'cart' : 'wishlist') + '.', 'info');
+                    return;
+                }
+
+                items.unshift({ name: itemName, price: price });
+                setStoredActionItems(key, items);
+                renderActionPanel();
+
+                this.classList.add('is-added');
+                this.setAttribute('aria-pressed', 'true');
+                var textEl = this.querySelector('span');
+                if (textEl) {
+                    textEl.textContent = action === 'cart' ? 'Added to Cart' : 'Added to Wishlist';
+                }
+
+                showAlert(itemName + ' added to your ' + (action === 'cart' ? 'cart' : 'wishlist') + '.', 'success');
+                openActionPanel(action === 'cart' ? 'cart' : 'wishlist');
+            });
+
+            button.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.stopPropagation();
+                }
+            });
+        });
+    });
+}
+
 function initProductCardLinks() {
     var cards = document.querySelectorAll('.product-card, .cards');
 
@@ -186,7 +391,7 @@ function initProductCardLinks() {
         card.setAttribute('tabindex', '0');
 
         card.addEventListener('click', function (e) {
-            if (e.target.closest('a')) return;
+            if (e.target.closest('a') || e.target.closest('.cards-actions, .action-btn')) return;
             window.location.href = 'product-detail.html';
         });
 
@@ -202,5 +407,33 @@ function initProductCardLinks() {
 document.addEventListener('DOMContentLoaded', function () {
     initMenuToggle();
     initThemeToggle();
+    initProductActions();
     initProductCardLinks();
+    renderActionPanel();
+
+    document.querySelectorAll('.icon-btn[data-action-view]').forEach(function (button) {
+        button.addEventListener('click', function (e) {
+            e.preventDefault();
+            toggleActionPanel(this.getAttribute('data-action-view'));
+        });
+    });
+
+    var closeButton = document.querySelector('.action-panel-close');
+    if (closeButton) {
+        closeButton.addEventListener('click', closeActionPanel);
+    }
+
+    document.querySelectorAll('.action-tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+            openActionPanel(this.getAttribute('data-panel-view'));
+        });
+    });
+
+    document.addEventListener('click', function (e) {
+        var panel = document.getElementById('action-panel');
+        if (!panel || !panel.classList.contains('open')) return;
+        if (!e.target.closest('.action-panel') && !e.target.closest('.icon-btn[data-action-view]')) {
+            closeActionPanel();
+        }
+    });
 });

@@ -12,31 +12,60 @@
     <link rel="icon" type="image/x-icon" href="images/Meubel House_Logos-05 (1).png">
 </head>
 <body>
-           <header>
-        <div class="logo">
-            <img src="images/Frame 168.png" alt="Furniro Logo">
+    <header>
+       <div class="logo">
+            <a href="index.html">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="images/Meubel House_Logos-05.png">
+                    <img src="images/Frame 168.png" alt="Furniro Logo">
+                </picture>
+            </a>
         </div>
         <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+           <span class="bar"></span>
+           <span class="bar"></span>
+           <span class="bar"></span>
         </button>
         <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="Shop.html" >Shop</a></li>
-        <li><a href="gallery.html" class="active">Gallery</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="content.html">Contact</a></li>
+           <li><a href="index.html">Home</a></li>
+           <li><a href="Shop.html">Shop</a></li>
+           <li><a href="gallery.html" class="active">Gallery</a></li>
+           <li><a href="about.html">About</a></li>
+           <li><a href="content.html">Contact</a></li>
         </ul>
         <div class="icon-sec">
-        <i class="fa-solid fa-user"></i>
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <i class="fa-regular fa-heart"></i>
-        <i class="fa-solid fa-cart-arrow-down"></i>
-
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+           <button class="icon-btn" type="button" aria-label="User profile"><i class="fa-solid fa-user"></i></button>
+           <button class="icon-btn" type="button" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+           <button class="icon-btn" type="button" aria-label="Wishlist" data-action-view="wishlist"><i class="fa-regular fa-heart"></i><span class="icon-badge wishlist-count">0</span></button>
+           <button class="icon-btn" type="button" aria-label="Cart" data-action-view="cart"><i class="fa-solid fa-cart-arrow-down"></i><span class="icon-badge cart-count">0</span></button>
+           <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
         </div>
     </header>
+    <aside id="action-panel" class="action-panel" aria-hidden="true">
+        <div class="action-panel-header">
+            <div>
+                <h3>Your selections</h3>
+                <p>Items you add appear here instantly.</p>
+            </div>
+            <button class="action-panel-close" type="button" aria-label="Close selections panel">�</button>
+        </div>
+        <div class="action-panel-tabs" role="tablist" aria-label="Cart and wishlist sections">
+            <button class="action-tab active" type="button" data-panel-view="cart">
+                Cart <span class="panel-cart-count">0</span>
+            </button>
+            <button class="action-tab" type="button" data-panel-view="wishlist">
+                Wishlist <span class="panel-wishlist-count">0</span>
+            </button>
+        </div>
+        <div class="action-panel-body">
+            <div class="panel-section active" data-panel-section="cart">
+                <ul id="cart-list" class="action-list"></ul>
+            </div>
+            <div class="panel-section" data-panel-section="wishlist">
+                <ul id="wishlist-list" class="action-list"></ul>
+            </div>
+        </div>
+    </aside>
       <div class="contact-section">
         <div class="contact-content">
             <img src="images/Meubel House_Logos-05.png" alt="Furniro Logo" class="about-logo">
@@ -141,5 +170,6 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 

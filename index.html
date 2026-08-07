@@ -18,7 +18,10 @@
     <header>
         <div class="logo">
             <a href="index.html">
-                <img src="images/Frame 168.png" alt="Furniro Logo">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="images/Meubel House_Logos-05.png">
+                    <img src="images/Frame 168.png" alt="Furniro Logo">
+                </picture>
             </a>
         </div>
         <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -34,14 +37,40 @@
             <li><a href="content.html">Contact</a></li>
         </ul>
         <div class="icon-sec">
-            <i class="fa-solid fa-user"></i>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-regular fa-heart"></i>
-            <i class="fa-solid fa-cart-arrow-down"></i>
-
+            <button class="icon-btn" type="button" aria-label="User profile"><i class="fa-solid fa-user"></i></button>
+            <button class="icon-btn" type="button" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="icon-btn" type="button" aria-label="Wishlist" data-action-view="wishlist"><i class="fa-regular fa-heart"></i><span class="icon-badge wishlist-count">0</span></button>
+            <button class="icon-btn" type="button" aria-label="Cart" data-action-view="cart"><i class="fa-solid fa-cart-arrow-down"></i><span class="icon-badge cart-count">0</span></button>
+ 
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
         </div>
     </header>
+
+    <aside id="action-panel" class="action-panel" aria-hidden="true">
+        <div class="action-panel-header">
+            <div>
+                <h3>Your selections</h3>
+                <p>Items you add appear here instantly.</p>
+            </div>
+            <button class="action-panel-close" type="button" aria-label="Close selections panel">×</button>
+        </div>
+        <div class="action-panel-tabs" role="tablist" aria-label="Cart and wishlist sections">
+            <button class="action-tab active" type="button" data-panel-view="cart">
+                Cart <span class="panel-cart-count">0</span>
+            </button>
+            <button class="action-tab" type="button" data-panel-view="wishlist">
+                Wishlist <span class="panel-wishlist-count">0</span>
+            </button>
+        </div>
+        <div class="action-panel-body">
+            <div class="panel-section active" data-panel-section="cart">
+                <ul id="cart-list" class="action-list"></ul>
+            </div>
+            <div class="panel-section" data-panel-section="wishlist">
+                <ul id="wishlist-list" class="action-list"></ul>
+            </div>
+        </div>
+    </aside>
 
     <!-- Hero Section -->
     <div class="hero-section">
@@ -108,7 +137,17 @@
                 <div class="cards-content">
                     <h4>Modern Sofa</h4>
                     <p>Comfortable living room sofa</p>
-                    <span class="price">Rp 1.408.000</span>
+                    <span class="price">₹ 1,40,800</span>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Modern Sofa to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Modern Sofa to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- card 2 -->
@@ -119,7 +158,17 @@
                 <div class="cards-content">
                     <h4>Dining Set</h4>
                     <p>Elegant dining table set</p>
-                    <span class="price">Rp 1.496.000</span>
+                    <span class="price">₹ 1,49,600</span>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Dining Set to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Dining Set to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- card 3 -->
@@ -130,7 +179,17 @@
                 <div class="cards-content">
                     <h4>Accent Chair</h4>
                     <p>Stylish lounge chair</p>
-                    <span class="price">Rp 1.056.000</span>
+                    <span class="price">₹ 1,05,600</span>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Accent Chair to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Accent Chair to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- card 4 -->
@@ -141,7 +200,17 @@
                 <div class="cards-content">
                     <h4>Bedroom Set</h4>
                     <p>Luxury bedroom furniture</p>
-                    <span class="price">Rp 2.200.000</span>
+                    <span class="price">₹ 2,20,000</span>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Bedroom Set to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Bedroom Set to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- card 5 -->
@@ -152,7 +221,17 @@
                 <div class="cards-content">
                     <h4>Study Desk</h4>
                     <p>Minimal work desk design</p>
-                    <span class="price">Rp 1.214.000</span>
+                    <span class="price">₹ 1,21,400</span>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Study Desk to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Study Desk to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- card 6 -->
@@ -163,7 +242,17 @@
                 <div class="cards-content">
                     <h4>Coffee Table</h4>
                     <p>Modern living room table</p>
-                    <span class="price">Rp 757.000</span>
+                    <span class="price">₹ 75,700</span>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Coffee Table to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Coffee Table to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- card 7 -->
@@ -174,7 +263,17 @@
                 <div class="cards-content">
                     <h4>Bedroom Bench</h4>
                     <p>Elegant bedroom seating</p>
-                    <span class="price">Rp 1.320.000</span>
+                    <span class="price">₹ 1,32,000</span>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Bedroom Bench to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Bedroom Bench to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
             <!-- card 8 -->
@@ -185,7 +284,17 @@
                 <div class="cards-content">
                     <h4>Decor Shelf</h4>
                     <p>Chic wall display shelf</p>
-                    <span class="price">Rp 668.000</span>
+                    <span class="price">₹ 66,800</span>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Decor Shelf to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Decor Shelf to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

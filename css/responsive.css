@@ -1,7 +1,7 @@
 ﻿/* Responsive overrides for tablets and phones */
 
 @media (max-width: 1024px) {
-  /* show hamburger and animate the dropdown menu on tablet and smaller */
+
   header ul {
     display: flex;
     flex-direction: column;
@@ -30,11 +30,12 @@
   .hamburger {
     display: block;
     position: absolute;
-    top: 18px;
+    top: 50%;
     right: 18px;
+    transform: translateY(-50%);
     width: 36px;
     height: 36px;
-    z-index: 10;
+    z-index: 20;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -46,7 +47,7 @@
     background: var(--text-main);
     margin: 5px auto;
   }
-  /* style theme toggle when moved into nav */
+  
   header ul .nav-theme {
     display: flex;
     align-items: center;
@@ -189,6 +190,7 @@
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
+    z-index: 12;
   }
   header ul.open li a {
     padding: 8px 12px;
@@ -204,6 +206,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
+    transform: translateY(0);
   }
   .hamburger .bar {
     width: 24px;
@@ -211,7 +214,28 @@
     margin: 5px auto;
   }
   .icon-sec {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    width: max-content;
+    min-width: 0;
+    gap: 10px;
+    z-index: 5;
+    align-items: center;
+  }
+  .icon-sec .icon-btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+  }
+  .icon-sec .icon-btn:not([data-action-view]) {
     display: none;
+  }
+  .hamburger {
+    right: 78px;
+    z-index: 20;
   }
   .logo img {
     width: 150px;
@@ -255,6 +279,21 @@
 }
 
 @media (max-width: 640px) {
+  .cards-actions {
+    flex-direction: column;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+
+  .action-panel {
+    right: 16px;
+    left: 16px;
+    width: auto;
+    top: 76px;
+  }
+
   .about-hero-text h2,
   .about-text-block h2 {
     font-size: 24px;
@@ -483,15 +522,17 @@
   }
   header ul {
     gap: 10px 16px;
-    display: none;
   }
   header ul li a {
     font-size: 14px;
   }
   .icon-sec {
-    width: 100%;
+    width: auto;
+    left: 50%;
+    right: auto;
     justify-content: center;
     margin-left: 0;
+    transform: translate(-50%, -50%);
   }
   .site-footer {
     align-items: center;

@@ -11,36 +11,64 @@
     <link rel="stylesheet" href="./css/master.css">
     <link rel="stylesheet" href="./feature/dark-theme.css">
     <link rel="icon" type="image/x-icon" href="images/Meubel House_Logos-05 (1).png">
+ 
 </head>
 
 <body>
     <header>
-        <div class="logo">
+       <div class="logo">
             <a href="index.html">
-                <img src="images/Frame 168.png" alt="Furniro Logo">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="images/Meubel House_Logos-05.png">
+                    <img src="images/Frame 168.png" alt="Furniro Logo">
+                </picture>
             </a>
         </div>
         <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+           <span class="bar"></span>
+           <span class="bar"></span>
+           <span class="bar"></span>
         </button>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Shop.html" class="active">Shop</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="content.html">Contact</a></li>
+           <li><a href="index.html">Home</a></li>
+           <li><a href="Shop.html" class="active">Shop</a></li>
+           <li><a href="gallery.html" >Gallery</a></li>
+           <li><a href="about.html">About</a></li>
+           <li><a href="content.html">Contact</a></li>
         </ul>
         <div class="icon-sec">
-            <i class="fa-solid fa-user"></i>
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-regular fa-heart"></i>
-            <i class="fa-solid fa-cart-arrow-down"></i>
-
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+           <button class="icon-btn" type="button" aria-label="User profile"><i class="fa-solid fa-user"></i></button>
+           <button class="icon-btn" type="button" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+           <button class="icon-btn" type="button" aria-label="Wishlist" data-action-view="wishlist"><i class="fa-regular fa-heart"></i><span class="icon-badge wishlist-count">0</span></button>
+           <button class="icon-btn" type="button" aria-label="Cart" data-action-view="cart"><i class="fa-solid fa-cart-arrow-down"></i><span class="icon-badge cart-count">0</span></button>
+           <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
         </div>
     </header>
+    <aside id="action-panel" class="action-panel" aria-hidden="true">
+        <div class="action-panel-header">
+            <div>
+                <h3>Your selections</h3>
+                <p>Items you add appear here instantly.</p>
+            </div>
+            <button class="action-panel-close" type="button" aria-label="Close selections panel">�</button>
+        </div>
+        <div class="action-panel-tabs" role="tablist" aria-label="Cart and wishlist sections">
+            <button class="action-tab active" type="button" data-panel-view="cart">
+                Cart <span class="panel-cart-count">0</span>
+            </button>
+            <button class="action-tab" type="button" data-panel-view="wishlist">
+                Wishlist <span class="panel-wishlist-count">0</span>
+            </button>
+        </div>
+        <div class="action-panel-body">
+            <div class="panel-section active" data-panel-section="cart">
+                <ul id="cart-list" class="action-list"></ul>
+            </div>
+            <div class="panel-section" data-panel-section="wishlist">
+                <ul id="wishlist-list" class="action-list"></ul>
+            </div>
+        </div>
+    </aside>
     <div class="contact-section">
         <div class="contact-content">
             <img src="images/Meubel House_Logos-05.png" alt="Furniro Logo" class="about-logo">
@@ -61,7 +89,17 @@
                 <div class="product-info">
                     <h4>Syltherine</h4>
                     <p>Stylish chair</p>
-                    <div class="price">Rp 2.500.000</div>
+                    <div class="price">? 2,50,000</div>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Syltherine to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Syltherine to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -74,7 +112,17 @@
                 <div class="product-info">
                     <h4>Leviosa</h4>
                     <p>Modern chair</p>
-                    <div class="price">Rp 2.600.000</div>
+                    <div class="price">? 2,60,000</div>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Leviosa to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Leviosa to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -86,7 +134,17 @@
                 <div class="product-info">
                     <h4>Lolito</h4>
                     <p>Luxury big sofa</p>
-                    <div class="price">Rp 7.000.000</div>
+                    <div class="price">? 7,00,000</div>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Lolito to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Lolito to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -98,7 +156,17 @@
                 <div class="product-info">
                     <h4>Respira</h4>
                     <p>Outdoor table</p>
-                    <div class="price">Rp 500.000</div>
+                    <div class="price">? 50,000</div>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Respira to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Respira to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -110,7 +178,17 @@
                 <div class="product-info">
                     <h4>Syltherine</h4>
                     <p>Stylish chair</p>
-                    <div class="price">Rp 2.500.000</div>
+                    <div class="price">? 2,50,000</div>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Syltherine to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Syltherine to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -122,7 +200,17 @@
                 <div class="product-info">
                     <h4>Leviosa</h4>
                     <p>Modern chair</p>
-                    <div class="price">Rp 2.600.000</div>
+                    <div class="price">? 2,60,000</div>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Leviosa to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Leviosa to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -135,6 +223,16 @@
                     <h4>Lolito</h4>
                     <p>Luxury big sofa</p>
                     <div class="price">Rp 7.000.000</div>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Lolito to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Lolito to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -147,6 +245,16 @@
                     <h4>Respira</h4>
                     <p>Outdoor table</p>
                     <div class="price">Rp 500.000</div>
+                    <div class="cards-actions">
+                        <button class="action-btn" type="button" data-action="cart" aria-label="Add Respira to cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                        <button class="action-btn" type="button" data-action="wishlist" aria-label="Add Respira to wishlist">
+                            <i class="fa-regular fa-heart"></i>
+                            <span>Add to Wishlist</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -204,8 +312,121 @@
         </div>
     </footer>
 <script src="script.js"></script>
+    <script>
+        // Convert displayed prices to Indian Rupee format (₹) with en-IN grouping
+        (function(){
+            try{
+                const prices = document.querySelectorAll('.price');
+                prices.forEach(el => {
+                    if(!el) return;
+                    const text = (el.textContent || '').trim();
+                    // Extract digits only (remove any currency symbols, dots, commas, spaces)
+                    const digits = text.replace(/[^0-9]/g, '');
+                    if(!digits) return;
+                    const value = parseInt(digits, 10);
+                    if(Number.isNaN(value)) return;
+                    // Format using Indian grouping (lakhs)
+                    el.textContent = '₹ ' + new Intl.NumberFormat('en-IN').format(value);
+                });
+            }catch(e){
+                // fail silently
+                console.error('Price conversion error:', e);
+            }
+        })();
+
+        // Mobile hamburger toggle: move cart & wishlist into hamburger menu on small screens
+        (function(){
+            const hamburger = document.querySelector('.hamburger');
+            const header = document.querySelector('header');
+            const nav = document.querySelector('header ul');
+            if(!hamburger || !header || !nav) return;
+
+            hamburger.addEventListener('click', function(e){
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', String(!expanded));
+                header.classList.toggle('nav-open');
+            });
+
+            // Close menu when a nav link or mobile action is clicked
+            nav.addEventListener('click', function(e){
+                const target = e.target;
+                if(target.tagName === 'A' || target.closest('.mobile-actions') || target.closest('.icon-btn')){
+                    header.classList.remove('nav-open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Ensure menu closes when resizing to desktop
+            window.addEventListener('resize', function(){
+                if(window.innerWidth > 768){
+                    header.classList.remove('nav-open');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+
+        // Mobile actions: open Cart/Wishlist panel from hamburger menu
+        (function(){
+            const actionPanel = document.getElementById('action-panel');
+            if(!actionPanel) return;
+
+            // buttons placed inside mobile menu (and also present in header.icon-sec)
+            const mobileMenuButtons = document.querySelectorAll('header ul li.mobile-actions .icon-btn');
+            const headerButtons = document.querySelectorAll('.icon-sec .icon-btn[data-action-view]');
+            const allButtons = Array.from(mobileMenuButtons).concat(Array.from(headerButtons));
+
+            allButtons.forEach(btn => {
+                btn.addEventListener('click', function(e){
+                    const view = this.dataset.actionView; // 'cart' or 'wishlist'
+                    if(!view) return;
+
+                    // Open action panel
+                    actionPanel.setAttribute('aria-hidden', 'false');
+                    actionPanel.classList.add('open');
+
+                    // Activate appropriate tab
+                    const tabs = actionPanel.querySelectorAll('.action-tab');
+                    tabs.forEach(t => {
+                        t.classList.toggle('active', t.dataset.panelView === view);
+                    });
+
+                    // Show corresponding section
+                    const sections = actionPanel.querySelectorAll('.panel-section');
+                    sections.forEach(s => {
+                        s.classList.toggle('active', s.dataset.panelSection === view);
+                    });
+
+                    // Close hamburger menu if open (mobile)
+                    const header = document.querySelector('header');
+                    const hamburger = document.querySelector('.hamburger');
+                    if(header && header.classList.contains('nav-open')){
+                        header.classList.remove('nav-open');
+                        if(hamburger) hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Close action panel on close button
+            const closeBtn = actionPanel.querySelector('.action-panel-close');
+            if(closeBtn){
+                closeBtn.addEventListener('click', function(){
+                    actionPanel.setAttribute('aria-hidden', 'true');
+                    actionPanel.classList.remove('open');
+                });
+            }
+
+            // Allow switching tabs inside action panel
+            const tabButtons = actionPanel.querySelectorAll('.action-tab');
+            tabButtons.forEach(tb => tb.addEventListener('click', function(){
+                const view = this.dataset.panelView;
+                tabButtons.forEach(t => t.classList.toggle('active', t === this));
+                actionPanel.querySelectorAll('.panel-section').forEach(s => s.classList.toggle('active', s.dataset.panelSection === view));
+            }));
+        })();
+    </script>
 </body>
 
 </html>
+
 
 
