@@ -34,3 +34,26 @@
 /*  Responsive */
 @import url("responsive.css");
 
+/* Mobile: Cart, Wishlist, and Dark Theme toggle hide
+   (Mobile devices <= 767px) */
+@media (max-width: 767px) {
+    /* Common class/id variations covered */
+    .cart, .cart-btn, .cart-icon, .nav-cart, .cart-button, #cart, [data-role="cart"],
+    .wishlist, .wishlist-btn, .wishlist-icon, .nav-wishlist, .wish-btn, #wishlist, [data-role="wishlist"],
+    .theme-toggle, #theme-toggle, .dark-mode-toggle, .dark-toggle, .toggle-theme, [data-theme-toggle] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        height: 0 !important;
+        width: 0 !important;
+    }
+
+    /* Attribute-based fallbacks for buttons/links with aria-labels */
+    button[aria-label*="cart"], a[aria-label*="cart"],
+    button[aria-label*="wishlist"], a[aria-label*="wishlist"],
+    button[aria-label*="theme"], a[aria-label*="theme"] {
+        display: none !important;
+        visibility: hidden !important;
+    }
+}
